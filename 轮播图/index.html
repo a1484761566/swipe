@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.box{position: relative;}
+			.box img{position: absolute;display: none;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="10.jpg">
+			<img src="11.jpg">
+			<img src="12.jpg">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<script>
+			var box=document.getElementsByClassName("box")[0];
+			var igs=box.getElementsByTagName("img");
+			var count=0
+			var timer=setInterval(function(){
+					
+						for(var i=0;i<igs.length;i++)
+						{
+								igs[i].style.display="none";
+						}
+						if(count>=igs.length-1)
+						{
+							count=0
+						}
+						else
+						{
+							count++;
+						}
+						igs[count].style.display="block"
+						},1000)
+			for(var i=0;i<igs.length;i++)
+			{
+				igs[i].onmouseover=function()
+				{
+					clearInterval(timer)
+				}
+				
+			}
+		</script>
+	</body>
+</html>
